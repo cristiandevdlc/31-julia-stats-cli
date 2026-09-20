@@ -1,0 +1,5 @@
+values = tryparse.(Float64, ARGS)
+filter!(x -> !isnothing(x), values); values = Float64.(values)
+isempty(values) && error("Proporciona al menos un número")
+println("Cantidad: ", length(values)); println("Mínimo: ", minimum(values)); println("Máximo: ", maximum(values)); println("Promedio: ", round(sum(values) / length(values), digits=2))
+sorted = sort(values); middle = (length(sorted) + 1) ÷ 2; println("Mediana: ", isodd(length(sorted)) ? sorted[middle] : (sorted[middle] + sorted[middle + 1]) / 2)
